@@ -70,8 +70,8 @@ Reliability: Avoids rate limits, API downtime, or subscription requirements.
 
 How to Use
 
-Run the program:
-python gui.py
+Run the program>
+IN A TERMINAL TYPE : python gui.py
 Code Generation Tab
 Type a prompt describing the function you want.
 Press Run.
