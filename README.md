@@ -136,7 +136,7 @@ Expected: Basic regex or string checks for @ and .
 Prompt: Generate a function to compute factorial iteratively
 Expected: Loop-based factorial calculation
 
-VULNERABILITY DDETECTOR EXAMPLES: 
+VULNERABILITY DETECTOR EXAMPLES: 
 Code: password = "1234"
 Expected Detection: Hardcoded secret (CRITICAL)
 
