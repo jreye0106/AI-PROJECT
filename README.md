@@ -89,3 +89,97 @@ New code templates can be added to generator.py.
 Detection rules can be modified in vulnerability_scanner.py.
 Input validation ensures no invalid prompts or actions are processed.
 
+
+CODE GEN EXAMPLES:
+Prompt: Generate a factorial function using recursion
+Expected: Recursive factorial function
+
+Prompt: Generate Fibonacci sequence up to 10
+Expected: Function returning [0,1,1,2,3,5,8]
+
+Prompt: Generate a function that sums all numbers in a list
+Expected: Function using for loop or sum() function
+
+Prompt: Generate a function to reverse a string
+Expected: Uses slicing or loop to reverse string
+
+Prompt: Generate a class for a simple Stack
+Expected: Class with push, pop, peek methods
+
+Prompt: Generate a function to check if a number is prime
+Expected: Loop through divisors, returns True/False
+
+Prompt: Generate a function to read a CSV file and sum a column
+Expected: Uses csv.DictReader, loops over rows
+
+Prompt: Generate a function with a while loop that counts down from 10
+Expected: Simple countdown logic
+
+Prompt: Generate a function to find the maximum value in a list
+Expected: Uses max() or manual loop comparison
+
+Prompt: Generate a function that uses recursion to compute power(x, n)
+Expected: Function with base case and recursive call
+
+Prompt: Generate a function to remove duplicates from a list
+Expected: Uses set() or loop to filter duplicates
+
+Prompt: Generate a function to merge two dictionaries
+Expected: Handles key conflicts, returns merged dictionary
+
+Prompt: Generate a function to reverse words in a sentence
+Expected: Splits sentence, reverses order, joins back
+
+Prompt: Generate a function to validate email addresses
+Expected: Basic regex or string checks for @ and .
+
+Prompt: Generate a function to compute factorial iteratively
+Expected: Loop-based factorial calculation
+
+VULNERABILITY DDETECTOR EXAMPLES: 
+Code: password = "1234"
+Expected Detection: Hardcoded secret (CRITICAL)
+
+Code: api_key = "abcd1234"
+Expected Detection: Hardcoded secret (CRITICAL)
+
+Code: eval("print(2+2)")
+Expected Detection: Use of eval/exec (HIGH)
+
+Code: exec("x=5")
+Expected Detection: Use of eval/exec (HIGH)
+
+Code: import os
+os.system("rm -rf /")
+Expected Detection: Unsafe command execution (HIGH)
+
+Code: import subprocess
+subprocess.call("ls")
+Expected Detection: Unsafe command execution (HIGH)
+
+Code: def safe_func():
+return 2+2
+Expected Detection: No vulnerabilities (score 100)
+
+Code: password="secret"
+eval("print(password)")
+os.system("ls")
+Expected Detection: Multiple issues (CRITICAL/HIGH)
+
+Code: api_key="key"
+subprocess.call("echo hello")
+Expected Detection: Hardcoded secret + unsafe command
+
+Code: def check(x):
+return x*2
+Expected Detection: No vulnerabilities detected
+
+Code: exec("print('hello')")
+Expected Detection: Use of exec (HIGH)
+
+Code: passwd = "admin123"
+Expected Detection: Hardcoded secret (CRITICAL)
+
+Code: def myfunc():
+os.system("mkdir test")
+Expected Detection: Unsafe command execution (HIGH)
