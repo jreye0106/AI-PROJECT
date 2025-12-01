@@ -136,7 +136,11 @@ class VulnTable(QtWidgets.QTableWidget):
     def __init__(self):
         super().__init__(0, 4)
         self.setHorizontalHeaderLabels(["ID", "Title", "Severity", "Line"])
-        self.horizontalHeader().setStretchLastSection(True)
+        self.horizontalHeader().setStretchLastSection(False)
+        self.setColumnWidth(0, 180)   # ID wider
+        self.setColumnWidth(1, 520)   # Title widest
+        self.setColumnWidth(2, 110)   # Severity unchanged
+        self.setColumnWidth(3, 40)   # Line smallest    # Line shortest
 
     def load_from_json(self, text: str):
         try:
